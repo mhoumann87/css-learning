@@ -1,0 +1,53 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: system-ui, serif;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  max-width: 43.75rem;
+  margin: 0 auto;
+  display: grid;
+  height: 100vh;
+  place-items: center;
+}
+
+.notice--div {
+  border: 3px solid #dc143c;
+  padding: 2rem;
+  font-size: 1rem;
+  background-color: #dc143c22;
+}
+
+.notice a {
+  color: crimson;
+}
+
+code {
+  background-color: gold;
+  padding: 0.25rem;
+}
+
+.article {
+  background-color: aliceblue;
+  padding: 3rem;
+}
+
+.callout {
+  padding-inline-start: 2rem;
+  margin-inline-start: 2rem;
+  font-size: 1.5rem;
+  border-left: 4px solid hotpink;
+}
+
+style {
+  display: block;
+  background: white;
+  border: 1px solid deepskyblue;
+  padding: 1rem 2rem;
+  line-height: 1.25;
+  font-family: monospace;
+  white-space: pre-wrap;
+  font-size: 1rem;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CSS Cascade Layers</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <div>
+        <h1>Cascade Layers</h1>
+
+        <div class="notice--div">
+          <p class="notice">
+            You'll only be able to see the right styles in
+            <a href="https://www.google.com/chrome/canary/" target="_blank"
+              >Google Canary</a
+            >,
+            <a
+              href="https://www.mozilla.org/en-US/firefox/channel/desktop/"
+              target="_blank"
+              >FireFox Nightly</a
+            >
+            or
+            <a
+              href="https://developer.apple.com/safari/technology-preview/"
+              target="_blank"
+              >Safari Technology Prewiew</a
+            >
+          </p>
+
+          <p class="notice">
+            This code is from a
+            <a
+              href="https://www.youtube.com/watch?v=ilrPpSQJb3U&t=0s"
+              target="_blank"
+              >video by Una Kravets
+            </a>
+            on Youtube
+          </p>
+        </div>
+      </div>
+
+      <article class="article">
+        <p>
+          In this example, we are showcasing the power of
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@layer"
+            >cascade layers</a
+          >, using <code>@layer</code>. This is a
+          <a href="#">link without a class name</a>. You can see is appears
+          greeb. This is a
+          <a href="#" class="link">link with a class og <code>link</code></a
+          >. It, too, appears green, even thouge we specify the color og
+          <code>.link</code> elements to be blue. While <code>.link</code> has a
+          higher element-level specificty than <code>a</code>, we are setting a
+          color style on <code>a</code> in a higher-precedence
+          <code>@layer</code>
+        </p>
+
+        <div class="callout">
+          <p>
+            The <em>layer</em> precedence beats the <em>element specificty</em>.
+          </p>
+        </div>
+
+        <p>
+          Now, we have an even <em>more</em> specific layer called
+          <code>utilities</code> where wee have a class called
+          <code>pink</code>. This is a
+          <a href="#" class="pink">link with a class of <code>pink</code></a
+          >. This specicicity wins
+        </p>
+
+        <p>
+          Here's what the code looks like (editable). Try removing the
+          <code>typography</code> layer, or adjust the order of the layers to
+          see what happens:
+        </p>
+
+        <style contenteditable>
+          @layer base {
+            a {
+              font-weight: 800;
+              color: red; /* ignored */
+            }
+
+            .link {
+              color: blue; /* ignored */
+            }
+          }
+
+          @layer typography {
+            a {
+              color: green; /* styles "all" links */
+            }
+          }
+
+          @layer utilities {
+            .pink {
+              color: hotpink; /* styles "all" .pink's */
+            }
+          }
+        </style>
+
+        <div class="callout">
+          <p>
+            If you reverse the layer order at the top of the file (i.e. the
+            first time the name of the layer is introduced), you'll see a
+            different result.
+            <code>@layer utilities, typography, base</code> will make the links
+            appear red and blue.
+          </p>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
